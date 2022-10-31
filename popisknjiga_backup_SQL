@@ -1,0 +1,353 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.2
+-- Dumped by pg_dump version 14.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: autor; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.autor (
+    nazivautora character varying NOT NULL
+);
+
+
+ALTER TABLE public.autor OWNER TO postgres;
+
+--
+-- Name: izdavackakuca; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.izdavackakuca (
+    nazivizdavackekuce character varying NOT NULL
+);
+
+
+ALTER TABLE public.izdavackakuca OWNER TO postgres;
+
+--
+-- Name: knjiga; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.knjiga (
+    nazivknjige character varying NOT NULL,
+    sifraknjige integer NOT NULL,
+    brojpreostalihprimjeraka integer NOT NULL,
+    brojstranica integer NOT NULL,
+    uvez character varying NOT NULL,
+    posudjenaod date NOT NULL,
+    posudjenado date NOT NULL,
+    bestseler character varying NOT NULL,
+    vrstadjela character varying NOT NULL,
+    nazivautora character varying NOT NULL,
+    nazivizdavackekuce character varying NOT NULL
+);
+
+
+ALTER TABLE public.knjiga OWNER TO postgres;
+
+--
+-- Name: lik; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.lik (
+    imelika character varying NOT NULL,
+    prezimelika character varying NOT NULL
+);
+
+
+ALTER TABLE public.lik OWNER TO postgres;
+
+--
+-- Name: sadrzi; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.sadrzi (
+    sifraknjige integer NOT NULL,
+    imelika character varying NOT NULL
+);
+
+
+ALTER TABLE public.sadrzi OWNER TO postgres;
+
+--
+-- Data for Name: autor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.autor (nazivautora) VALUES ('Fjodor Mihajlovič Dostojevski');
+INSERT INTO public.autor (nazivautora) VALUES ('August Šenoa');
+INSERT INTO public.autor (nazivautora) VALUES ('Mark Twain');
+INSERT INTO public.autor (nazivautora) VALUES ('Mato Lovrak');
+INSERT INTO public.autor (nazivautora) VALUES ('Douglas Adams');
+INSERT INTO public.autor (nazivautora) VALUES ('J. R. Ward');
+INSERT INTO public.autor (nazivautora) VALUES ('Ivana Brlić-Mažuranić');
+INSERT INTO public.autor (nazivautora) VALUES ('Gustave Flaubert');
+INSERT INTO public.autor (nazivautora) VALUES ('Miroslav Krleža');
+INSERT INTO public.autor (nazivautora) VALUES ('Apostolos K. Doxiades');
+INSERT INTO public.autor (nazivautora) VALUES ('Nora Roberts');
+INSERT INTO public.autor (nazivautora) VALUES ('Albert Camus');
+
+
+--
+-- Data for Name: izdavackakuca; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.izdavackakuca (nazivizdavackekuce) VALUES ('Školska knjiga');
+INSERT INTO public.izdavackakuca (nazivizdavackekuce) VALUES ('Znanje');
+INSERT INTO public.izdavackakuca (nazivizdavackekuce) VALUES ('Mozaik knjiga');
+INSERT INTO public.izdavackakuca (nazivizdavackekuce) VALUES ('Večernji list');
+
+
+--
+-- Data for Name: knjiga; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Zločin i kazna', 1426, 37, 828, 'meki', '2022-10-21', '2022-11-11', 'da', 'roman', 'Fjodor Mihajlovič Dostojevski', 'Školska knjiga');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Zlatarovo zlato', 2522, 28, 475, 'tvrdi', '2022-10-20', '2022-11-10', 'ne', 'roman', 'August Šenoa', 'Školska knjiga');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Pustolovine Toma Sawyera', 9834, 18, 432, 'tvrdi', '2022-10-18', '2022-11-08', 'da', 'roman', 'Mark Twain', 'Školska knjiga');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Pustolovine Huckleberryja Finna', 4325, 19, 398, 'tvrdi', '2022-10-18', '2022-11-08', 'da', 'roman', 'Mark Twain', 'Znanje');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Družba Pere Kvržice', 2908, 23, 136, 'meki', '2022-10-26', '2022-11-16', 'da', 'roman', 'Mato Lovrak', 'Mozaik knjiga');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Vodič kroz galaksiju za autostopere', 7006, 7, 200, 'meki', '2022-10-25', '2022-11-15', 'ne', 'roman', 'Douglas Adams', 'Školska knjiga');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Bratstvo crnog bodeža - Kraljica tame', 2376, 3, 248, 'meki', '2022-10-27', '2022-11-17', 'da', 'roman', 'J. R. Ward', 'Znanje');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Bratstvo crnog bodeža - Noćni lov', 2097, 2, 256, 'meki', '2022-10-26', '2022-11-16', 'da', 'roman', 'J. R. Ward', 'Znanje');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Čudnovate zgode šegrta Hlapića', 1372, 21, 168, 'tvrdi', '2022-10-13', '2022-11-03', 'da', 'roman', 'Ivana Brlić-Mažuranić', 'Školska knjiga');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Gospođa Bovary', 9650, 17, 362, 'meki', '2022-10-19', '2022-11-09', 'ne', 'roman', 'Gustave Flaubert', 'Mozaik knjiga');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Povratak Filipa Latinovicza', 1327, 13, 257, 'meki', '2022-10-17', '2011-11-07', 'ne', 'roman', 'Miroslav Krleža', 'Večernji list');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Stric Petros i Goldbachova slutnja', 6125, 5, 205, 'meki', '2022-10-13', '2022-11-03', 'ne', 'roman', 'Apostolos K. Doxiades', 'Školska knjiga');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Sjeta u zaljevu Chesapeake', 9356, 4, 257, 'meki', '2022-10-21', '2022-11-11', 'da', 'roman', 'Nora Roberts', 'Znanje');
+INSERT INTO public.knjiga (nazivknjige, sifraknjige, brojpreostalihprimjeraka, brojstranica, uvez, posudjenaod, posudjenado, bestseler, vrstadjela, nazivautora, nazivizdavackekuce) VALUES ('Stranac', 8264, 16, 128, 'tvrdi', '2022-10-28', '2011-11-18', 'ne', 'roman', 'Albert Camus', 'Znanje');
+
+
+--
+-- Data for Name: lik; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Rodion', 'Romanovič Raskoljnikov');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Svidrigajlov', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Sonja', 'Marmeladova');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Razumihin', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Petar', 'Krupić');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Dora', 'Krupićeva');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Stjepko', 'Gregorijanec');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Pavao', 'Gregorijanec');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Grga', 'Čokolin');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Tom', 'Sawyer');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Huckleberry', 'Finn');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Becky', 'Thatcher');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Tetka', 'Polly');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Jim', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Huckov', 'Otac');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Pero', 'Kvržica');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Šilo', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Medo', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Divljak', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Milo', 'Dijete');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Arthur', 'Dent');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Marvin', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Ford', 'Prefect');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Zaphod', 'Beeblebrox');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Trillian', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Wrath', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Tohrment', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Darius', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Beth', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Phury', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Zsadist', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Rhage', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Vishous', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Hlapić', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Majstor', 'Mrkonja');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Majstorica', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Gita', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Crni', 'Štakor');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Emma', 'Bovary');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Charles', 'Bovary');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Ljekarnik', 'Homais');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Leopold', 'Dupuis');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Filip', 'Latinovicz');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Kanonik', 'Lovro');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Filipova', 'Majka');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Baločanski', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Bobočka', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Kyriales', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Petros', 'Papachristos');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Petrosov', 'Nećak');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Sammy', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Cameron', 'Quinn');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Phillip', 'Quinn');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Ethan', 'Quinn');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Seth', 'Quinn');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Drusilla', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Mersault', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Marie', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Salaman', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Raymond', '');
+INSERT INTO public.lik (imelika, prezimelika) VALUES ('Masson', '');
+
+
+--
+-- Data for Name: sadrzi; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1426, 'Rodion');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1426, 'Svidrigajlov');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1426, 'Sonja');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1426, 'Razumihin');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2522, 'Petar');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2522, 'Dora');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2522, 'Stjepko');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2522, 'Pavao');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2522, 'Grga');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9834, 'Tom');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (4325, 'Tom');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (4325, 'Huckleberry');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9834, 'Huckleberry');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9834, 'Becky');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9834, 'Tetka');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (4325, 'Tetka');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (4325, 'Jim');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (4325, 'Huckov');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2908, 'Pero');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2908, 'Šilo');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2908, 'Medo');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2908, 'Divljak');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2908, 'Milo');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (7006, 'Arthur');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (7006, 'Ford');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (7006, 'Zaphod');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (7006, 'Marvin');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (7006, 'Trillian');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2376, 'Wrath');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2376, 'Tohrment');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2376, 'Beth');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2376, 'Phury');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2376, 'Zsadist');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2376, 'Rhage');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2376, 'Vishous');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2097, 'Darius');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2097, 'Tohrment');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2097, 'Wrath');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (2097, 'Beth');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1372, 'Hlapić');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1372, 'Gita');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1372, 'Majstor');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1372, 'Majstorica');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1372, 'Crni');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9650, 'Emma');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9650, 'Charles');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9650, 'Ljekarnik');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9650, 'Leopold');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1327, 'Filip');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1327, 'Filipova');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1327, 'Kanonik');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1327, 'Baločanski');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1327, 'Bobočka');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (1327, 'Kyriales');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (6125, 'Petros');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (6125, 'Petrosov');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (6125, 'Sammy');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9356, 'Cameron');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9356, 'Phillip');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9356, 'Ethan');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9356, 'Seth');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (9356, 'Drusilla');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (8264, 'Mersault');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (8264, 'Marie');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (8264, 'Salaman');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (8264, 'Raymond');
+INSERT INTO public.sadrzi (sifraknjige, imelika) VALUES (8264, 'Masson');
+
+
+--
+-- Name: autor autor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.autor
+    ADD CONSTRAINT autor_pkey PRIMARY KEY (nazivautora);
+
+
+--
+-- Name: izdavackakuca izdavačka_kuća_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.izdavackakuca
+    ADD CONSTRAINT "izdavačka_kuća_pkey" PRIMARY KEY (nazivizdavackekuce);
+
+
+--
+-- Name: knjiga knjiga_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.knjiga
+    ADD CONSTRAINT knjiga_pkey PRIMARY KEY (sifraknjige);
+
+
+--
+-- Name: lik lik_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.lik
+    ADD CONSTRAINT lik_pkey PRIMARY KEY (imelika);
+
+
+--
+-- Name: sadrzi sadrži_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sadrzi
+    ADD CONSTRAINT "sadrži_pkey" PRIMARY KEY (sifraknjige, imelika);
+
+
+--
+-- Name: knjiga knjiga_nazivautora_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.knjiga
+    ADD CONSTRAINT knjiga_nazivautora_fkey FOREIGN KEY (nazivautora) REFERENCES public.autor(nazivautora);
+
+
+--
+-- Name: knjiga knjiga_nazivizdavačkekuće_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.knjiga
+    ADD CONSTRAINT "knjiga_nazivizdavačkekuće_fkey" FOREIGN KEY (nazivizdavackekuce) REFERENCES public.izdavackakuca(nazivizdavackekuce);
+
+
+--
+-- Name: sadrzi sadrži_imelika_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sadrzi
+    ADD CONSTRAINT "sadrži_imelika_fkey" FOREIGN KEY (imelika) REFERENCES public.lik(imelika);
+
+
+--
+-- Name: sadrzi sadrži_šifraknjige_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sadrzi
+    ADD CONSTRAINT "sadrži_šifraknjige_fkey" FOREIGN KEY (sifraknjige) REFERENCES public.knjiga(sifraknjige);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
