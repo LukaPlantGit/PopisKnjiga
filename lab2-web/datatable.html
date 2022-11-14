@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta description="Popis knjiga u knjižnici.">
+    <meta keywords="knjiga, roman, bestseler, autor, izdavačka kuća, likovi">
+    <meta author="Luka Plantak">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Popis Knjiga</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">OpenLibrary</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="datatable.html">DATATABLE</a></li>
+                </ul>
+            </div>
+        </div> 
+        <br><br><br><br>
+
+        <div class="content" style="width:80%">
+            <div class="card centered-container" style="width:30%">
+                <label class="label">Polje za pretragu:</label>
+                <input id="search-input" class="form-control" type="text">
+            </div>
+    
+            <div class="search-form centered-container" style="width:30%">
+                <label id="search-by" for="search-by" class="label">Odaberite polje za pretragu:</label> <br>
+                <select name="search-options" id="search-options">
+                    <option id="search-sve" value="search-sve">Sva polja (wildcard)</option>
+                    <option id="search-nazivknjige" value="search-nazivknjige">Naziv knjige</option>
+                    <option id="search-nazivautora" value="search-nazivautora">Naziv autora</option>
+                </select>
+            </div>
+            <table id="popis-knjiga-table" class="display table" style="width:100%">
+                <thead>
+                <tr>
+                    <th  data-colname="sifraknjige" data-order="desc">Šifra knjige</th>
+                    <th  data-colname="nazivknjige" data-order="desc">Naziv knjige</th>
+                    <th  data-colname="nazivautora" data-order="desc">Naziv autora</th>
+                    <th  data-colname="bestseler" data-order="desc">Bestseler</th>
+                    <th  data-colname="vrstadjela" data-order="desc">Vrsta djela</th>
+                    <th  data-colname="likovi" data-order="desc">Likovi</th>
+                    <th  data-colname="nazivizdavackekuce" data-order="desc">Naziv izdavačke kuće</th>
+                    <th  data-colname="uvez" data-order="desc">Uvez</th>
+                    <th  data-colname="brojstranica" data-order="desc">Broj stranica</th>
+                    <th  data-colname="posudjenaod" data-order="desc">Posuđena na datum</th>
+                    <th  data-colname="posudjenado" data-order="desc">Treba biti vraćena do datuma</th>
+                    <th  data-colname="brojpreostalihprimjeraka" data-order="desc">Broj preostalih primjeraka</th>
+                </tr>
+                </thead>
+                <tbody id="myTable">
+                        
+                </tbody>
+            </table>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br>
+            <div class="download"><br>
+                Filtrirane podatke možete preuzeti u sljedećim formatima:<br><br>
+                <button class="download-button" type="button" onclick="tableToCSV()">
+                    CSV
+                </button><br><br>
+                <button class="download-button" type="button" onclick="tableToJSON()">
+                    JSON
+                </button><br><br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

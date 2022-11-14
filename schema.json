@@ -1,0 +1,336 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "https://github.com/LukaPlantGit/PopisKnjiga",
+    "type": "array",
+    "default": [],
+    "title": "Popis Knjiga",
+	"description": "Popis knjiga u knjižnici.",
+    "items": {
+        "type": "object",
+        "title": "A Schema",
+        "required": [
+            "sifraknjige",
+            "nazivknjige",
+            "nazivautora",
+            "bestseler",
+            "vrstadjela",
+            "likovi",
+            "nazivizdavackekuce",
+            "uvez",
+            "brojstranica",
+            "posudjenaod",
+            "posudjenado",
+            "brojpreostalihprimjeraka"
+        ],
+        "properties": {
+            "sifraknjige": {
+                "type": "integer",
+                "title": "Šifra knjige",
+                "examples": [
+                    6125,
+                    9356
+                ]
+            },
+            "nazivknjige": {
+                "type": "string",
+                "title": "Naziv knjige",
+                "examples": [
+                    "Stric Petros i Goldbachova slutnja",
+                    "Sjeta u zaljevu Chesapeake"
+                ]
+            },
+            "nazivautora": {
+                "type": "string",
+                "title": "Naziv autora",
+                "examples": [
+                    "Apostolos K. Doxiades",
+                    "Nora Roberts"
+                ]
+            },
+            "bestseler": {
+                "type": "string",
+                "title": "Bestseler",
+                "examples": [
+                    "ne",
+                    "da"
+                ]
+            },
+            "vrstadjela": {
+                "type": "string",
+                "title": "Vrsta djela",
+                "examples": [
+                    "roman"
+                ]
+            },
+            "likovi": {
+                "type": "array",
+                "title": "Likovi",
+                "items": {
+                    "type": "object",
+                    "title": "A Schema",
+                    "required": [
+                        "Ime",
+                        "Prezime"
+                    ],
+                    "properties": {
+                        "Ime": {
+                            "type": "string",
+                            "title": "Ime lika",
+                            "examples": [
+                                "Petros",
+                                "Petrosov",
+                                "Sammy",
+                                "Cameron",
+                                "Phillip",
+                                "Ethan",
+                                "Seth",
+                                "Drusilla"
+                            ]
+                        },
+                        "Prezime": {
+                            "type": "string",
+                            "title": "Prezime lika",
+                            "examples": [
+                                "Papachristos",
+                                "Nećak",
+                                "",
+                                "Quinn"
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "Ime": "Petros",
+                        "Prezime": "Papachristos"
+                    },
+                    {
+                        "Ime": "Petrosov",
+                        "Prezime": "Nećak"
+                    },
+                    {
+                        "Ime": "Sammy",
+                        "Prezime": ""
+                    },
+                    {
+                        "Ime": "Cameron",
+                        "Prezime": "Quinn"
+                    },
+                    {
+                        "Ime": "Phillip",
+                        "Prezime": "Quinn"
+                    },
+                    {
+                        "Ime": "Ethan",
+                        "Prezime": "Quinn"
+                    },
+                    {
+                        "Ime": "Seth",
+                        "Prezime": "Quinn"
+                    },
+                    {
+                        "Ime": "Drusilla",
+                        "Prezime": ""
+                    }]
+                },
+                "examples": [
+                    [{
+                        "Ime": "Petros",
+                        "Prezime": "Papachristos"
+                    },
+                    {
+                        "Ime": "Petrosov",
+                        "Prezime": "Nećak"
+                    },
+                    {
+                        "Ime": "Sammy",
+                        "Prezime": ""
+                    }],
+                    [{
+                        "Ime": "Cameron",
+                        "Prezime": "Quinn"
+                    },
+                    {
+                        "Ime": "Phillip",
+                        "Prezime": "Quinn"
+                    },
+                    {
+                        "Ime": "Ethan",
+                        "Prezime": "Quinn"
+                    },
+                    {
+                        "Ime": "Seth",
+                        "Prezime": "Quinn"
+                    },
+                    {
+                        "Ime": "Drusilla",
+                        "Prezime": ""
+                    }]
+                ]
+            },
+            "nazivizdavackekuce": {
+                "type": "string",
+                "title": "Naziv izdavačke kuće",
+                "examples": [
+                    "Školska knjiga",
+                    "Znanje"
+                ]
+            },
+            "uvez": {
+                "type": "string",
+                "title": "Uvez",
+                "examples": [
+                    "meki"
+                ]
+            },
+            "brojstranica": {
+                "type": "integer",
+                "title": "Broj stranica",
+                "examples": [
+                    205,
+                    257
+                ]
+            },
+            "posudjenaod": {
+                "type": "string",
+                "title": "Posuđena na datum",
+                "examples": [
+                    "2022-10-13",
+                    "2022-10-21"
+                ]
+            },
+            "posudjenado": {
+                "type": "string",
+                "title": "Treba vratiti do datuma",
+                "examples": [
+                    "2022-11-03",
+                    "2022-11-11"
+                ]
+            },
+            "brojpreostalihprimjeraka": {
+                "type": "integer",
+                "title": "Broj preostalih primjeraka",
+                "examples": [
+                    5,
+                    4
+                ]
+            }
+        },
+        "examples": [{
+            "sifraknjige": 6125,
+            "nazivknjige": "Stric Petros i Goldbachova slutnja",
+            "nazivautora": "Apostolos K. Doxiades",
+            "bestseler": "ne",
+            "vrstadjela": "roman",
+            "likovi": [{
+                "Ime": "Petros",
+                "Prezime": "Papachristos"
+            },
+            {
+                "Ime": "Petrosov",
+                "Prezime": "Nećak"
+            },
+            {
+                "Ime": "Sammy",
+                "Prezime": ""
+            }],
+            "nazivizdavackekuce": "Školska knjiga",
+            "uvez": "meki",
+            "brojstranica": 205,
+            "posudjenaod": "2022-10-13",
+            "posudjenado": "2022-11-03",
+            "brojpreostalihprimjeraka": 5
+        },
+        {
+            "sifraknjige": 9356,
+            "nazivknjige": "Sjeta u zaljevu Chesapeake",
+            "nazivautora": "Nora Roberts",
+            "bestseler": "da",
+            "vrstadjela": "roman",
+            "likovi": [{
+                "Ime": "Cameron",
+                "Prezime": "Quinn"
+            },
+            {
+                "Ime": "Phillip",
+                "Prezime": "Quinn"
+            },
+            {
+                "Ime": "Ethan",
+                "Prezime": "Quinn"
+            },
+            {
+                "Ime": "Seth",
+                "Prezime": "Quinn"
+            },
+            {
+                "Ime": "Drusilla",
+                "Prezime": ""
+            }],
+            "nazivizdavackekuce": "Znanje",
+            "uvez": "meki",
+            "brojstranica": 257,
+            "posudjenaod": "2022-10-21",
+            "posudjenado": "2022-11-11",
+            "brojpreostalihprimjeraka": 4
+        }]
+    },
+    "examples": [
+        [{
+            "sifraknjige": 6125,
+            "nazivknjige": "Stric Petros i Goldbachova slutnja",
+            "nazivautora": "Apostolos K. Doxiades",
+            "bestseler": "ne",
+            "vrstadjela": "roman",
+            "likovi": [{
+                "Ime": "Petros",
+                "Prezime": "Papachristos"
+            },
+            {
+                "Ime": "Petrosov",
+                "Prezime": "Nećak"
+            },
+            {
+                "Ime": "Sammy",
+                "Prezime": ""
+            }],
+            "nazivizdavackekuce": "Školska knjiga",
+            "uvez": "meki",
+            "brojstranica": 205,
+            "posudjenaod": "2022-10-13",
+            "posudjenado": "2022-11-03",
+            "brojpreostalihprimjeraka": 5
+        },
+        {
+            "sifraknjige": 9356,
+            "nazivknjige": "Sjeta u zaljevu Chesapeake",
+            "nazivautora": "Nora Roberts",
+            "bestseler": "da",
+            "vrstadjela": "roman",
+            "likovi": [{
+                "Ime": "Cameron",
+                "Prezime": "Quinn"
+            },
+            {
+                "Ime": "Phillip",
+                "Prezime": "Quinn"
+            },
+            {
+                "Ime": "Ethan",
+                "Prezime": "Quinn"
+            },
+            {
+                "Ime": "Seth",
+                "Prezime": "Quinn"
+            },
+            {
+                "Ime": "Drusilla",
+                "Prezime": ""
+            }],
+            "nazivizdavackekuce": "Znanje",
+            "uvez": "meki",
+            "brojstranica": 257,
+            "posudjenaod": "2022-10-21",
+            "posudjenado": "2022-11-11",
+            "brojpreostalihprimjeraka": 4
+        }]
+    ]
+}
