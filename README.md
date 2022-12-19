@@ -50,7 +50,7 @@ knjiga, roman, bestseler, autor, izdavačka kuća, likovi
 
 #### Zadnje osvježeno
 
-2022-10-31
+2022-12-19
 
 
 #### Učestalost osvježavanja
@@ -70,4 +70,4 @@ ISO 8601
 
 #### Trenutna verzija
 
-1.0
+3.0
