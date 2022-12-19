@@ -263,6 +263,14 @@ const getOpenapi = (req, res) => {
     }`);
 }
 
+const notImpl = (req, res) => {
+    res.status(501).send(`{
+        "status": "Not Implemented",
+        "message": "Method not implemented for requested resource.",
+        "response": null
+    }`);
+}
+
 module.exports = {
     getBooks,
     getBookById,
@@ -273,4 +281,5 @@ module.exports = {
     getDostojevski,
     getBestseler,
     getOpenapi,
+    notImpl,
 };
