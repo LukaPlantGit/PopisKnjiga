@@ -1,0 +1,356 @@
+{
+	"openapi": "3.0.3",
+	"info": {
+		"info": "API za rad sa popisom knjiga",
+		"version": "v1"
+	},
+	"paths": {
+		"/api/knjige": {
+			"get": {
+				"summary": "Dohvati sve knjige iz popisa knjiga",
+				"description": "Vraća polje knjiga",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					"none"
+				],
+				"responses": {
+					"200": {
+						"description": "Knjige uspješno dohvaćene"
+					},
+					"404": {
+						"description": "Knjige nisu pronađene"
+					}
+				}
+			},
+			"post": {
+				"summary": "Dodaj novu knjigu u popis knjiga",
+				"description": "Dodaje novu knjigu u polje knjiga",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "sifraknjige",
+						"in": "body",
+						"description": "Šifra knjige",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"name": "nazivknjige",
+						"in": "body",
+						"description": "Naziv knjige",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "nazivautora",
+						"in": "body",
+						"description": "Naziv autora knjige",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "bestseler",
+						"in": "body",
+						"description": "Govori nam da li je knjiga bestseler ili nije",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "vrstadjela",
+						"in": "body",
+						"description": "Govori nam koja je vrsta djela knjige",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "likovi",
+						"in": "body",
+						"description": "Popis nekih glavnih likova knjige",
+						"required": true,
+						"type": "array",
+						"items": {
+							"type": "object",
+							"items": {
+								"type": "string"
+							}
+						}
+					},
+					{
+						"name": "nazivizdavackekuce",
+						"in": "body",
+						"description": "Naziv izdavačke kuće koja je izdala tu knjigu",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "uvez",
+						"in": "body",
+						"description": "Govori nam je li knjiga meko ili tvrdo uvezana",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "brojstranica",
+						"in": "body",
+						"description": "Govori nam koliko stranica ima ta knjiga",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"name": "posudjenaod",
+						"in": "body",
+						"description": "Govori nam kojeg datuma je knjiga posuđena",
+						"required": true,
+						"type": "string",
+						"format": "date"
+					},
+					{
+						"name": "posudjenado",
+						"in": "body",
+						"description": "Govori nam do kojeg datuma knjiga treba biti vraćena",
+						"required": true,
+						"type": "string",
+						"format": "date"
+					},
+					{
+						"name": "brojpreostalihprimjeraka",
+						"in": "body",
+						"description": "Govori nam koliko je još takvih knjiga trenutno u knjižnici",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Knjiga uspješno dodana"
+					},
+					"400": {
+						"description": "Neuspjelo dodavanje knjige, pogrešni parametri u zahtjevu."
+					}
+				}
+			}
+		},
+		"/api/knjige/:id": {
+			"get": {
+				"summary": "Dohvati knjigu sa zadanom šifrom",
+				"description": "Vraća knjigu sa zadanom šifrom",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "Šifra knjige",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Knjige uspješno dohvaćene"
+					},
+					"400": {
+						"description": "Unesena neispravna šifra knjige"
+					},
+					"404": {
+						"description": "Knjige nisu pronađene"
+					}
+				}
+			},
+			"put": {
+				"summary": "Promijeni vrijednosti nekih atributa knjige sa zadanom šifrom",
+				"description": "Mijenja vrijednosti nekih atributa knjige sa zadanom šifrom",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "Šifra knjige",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"name": "brojpreostalihprimjeraka",
+						"in": "body",
+						"description": "Govori nam koliko je još takvih knjiga trenutno u knjižnici",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"name": "posudjenaod",
+						"in": "body",
+						"description": "Govori nam kojeg datuma je knjiga posuđena",
+						"required": true,
+						"type": "string",
+						"format": "date"
+					},
+					{
+						"name": "posudjenado",
+						"in": "body",
+						"description": "Govori nam do kojeg datuma knjiga treba biti vraćena",
+						"required": true,
+						"type": "string",
+						"format": "date"
+					},
+					{
+						"name": "bestseler",
+						"in": "body",
+						"description": "Govori nam da li je knjiga bestseler",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Knjige uspješno dohvaćene"
+					},
+					"400": {
+						"description": "Uneseni neispravni parametri za update knjige"
+					},
+					"404": {
+						"description": "Knjige nisu pronađene"
+					}
+				}
+			},
+			"delete": {
+				"summary": "Izbriši knjigu sa zadanom šifrom",
+				"description": "Briše knjigu sa zadanom šifrom",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "Šifra knjige",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Knjige uspješno dohvaćene"
+					},
+					"400": {
+						"description": "Unesena neispravna šifra knjige"
+					},
+					"404": {
+						"description": "Knjige nisu pronađene"
+					}
+				}
+			}
+		},
+		"/api/knjige/uvez/meki": {
+			"get": {
+				"summary": "Dohvati sve meko uvezane knjige",
+				"description": "Vraća popis svih meko uvezanih knjiga",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "meki",
+						"in": "body",
+						"description": "Uvez knjige",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Knjige uspješno dohvaćene"
+					},
+					"404": {
+						"description": "Knjige nisu pronađene"
+					}
+				}
+			}
+		},
+		"/api/knjige/autor/dostojevski": {
+			"get": {
+				"summary": "Dohvati sve knjige čiji je autor Dostojevski",
+				"description": "Vraća popis svih knjiga čiji je autor Fjodor Mihajlovič Dostojevski",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "dostojevski",
+						"in": "body",
+						"description": "Autor knjige",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Knjige uspješno dohvaćene"
+					},
+					"404": {
+						"description": "Knjige nisu pronađene"
+					}
+				}
+			}
+		},
+		"/api/knjige/bestseler/da": {
+			"get": {
+				"summary": "Dohvati sve bestselere",
+				"description": "Vraća popis svih knjiga koje su bestseleri",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "bestseler",
+						"in": "body",
+						"description": "Govori nam da li je knjiga bestseler",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Knjige uspješno dohvaćene"
+					},
+					"404": {
+						"description": "Knjige nisu pronađene"
+					}
+				}
+			}
+		},
+		"/api/knjige/docs/openapi": {
+			"get": {
+				"summary": "Dohvati openapi specifikaciju",
+				"description": "Dohvaća openapi specifikaciju API-ja",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					"none"
+				],
+				"responses": {
+					"200": {
+						"description": "Openapi specifikacija uspješno dohvaćena"
+					},
+					"404": {
+						"description": "Openapi specifikacija nije pronađena"
+					}
+				}
+			}
+		}
+	}
+}
