@@ -1,0 +1,39 @@
+
+<style>
+    .menu{
+        width: 800px;
+        float: left;
+        height: 70px;
+    }
+
+    .menu a{
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        margin-left: 62px;
+        margin-top: 27px;
+        font-size: 20px;
+        text-decoration: none;
+        color: #fff;
+        font-family: Arial;
+        font-weight: bold;
+        transition: 0.4s ease-in-out;
+    }
+
+    .menu a:hover{
+        color: #ff7200;
+    }
+</style>
+
+<div class="menu">
+    <a href="/" class="link menu-item <%if (linkActive === 'home') {%>  link-active  <%}%>">HOME</a>
+    <% if( user !== undefined ) {%>
+        <a href="/user" class="link menu-item <%if (linkActive === 'user') {%>  link-active  <%}%>">KORISNIČKI PROFIL</a>
+        <a href="/download" class="link menu-item <%if (linkActive === 'download') {%>  link-active  <%}%>">OSVJEŽI PRESLIKE</a>
+        <a href="/logout" class="link menu-item <%if (linkActive === 'logout') {%>  link-active  <%}%>">ODJAVA</a>
+    <% } else {%>
+        <a href="/login" class="link menu-item <%if (linkActive === 'login') {%>  link-active  <%}%>">PRIJAVA</a>
+    <% } %>
+</div>

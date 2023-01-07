@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta description="Popis knjiga u knjižnici.">
+    <meta keywords="knjiga, roman, bestseler, autor, izdavačka kuća, likovi">
+    <meta author="Luka Plantak">
+    <script type="text/javascript" src="script.js" defer></script>
+    <title>Popis Knjiga</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .main{
+            width: 100%;
+            background: black;
+            background-position: center;
+            background-size: cover;
+            height: 300vh;
+            background-attachment: fixed;
+        }
+
+        .navbar{
+            width: 1200px;
+            height: 75px;
+            margin: auto;
+        }
+
+        .icon{
+            width: 200px;
+            float: left;
+            height: 70px;
+        }
+
+        .logo{
+            color: #ff7200;
+            font-size: 35px;
+            font-family: Arial;
+            padding-left: 20px;
+            float: left;
+            padding-top: 10px;
+            margin-top: 5px
+        }
+
+        .dobrodosli {
+            font-size: 20px;
+        }
+
+        .content{
+            width: 1200px;
+            height: auto;
+            margin: auto;
+            color: #fff;
+            position: relative;
+        }
+
+        .content .par{
+            padding-left: 20px;
+            padding-bottom: 25px;
+            font-family: Arial;
+            letter-spacing: 1.2px;
+            line-height: 30px;
+        }
+
+        .content h1{
+            font-family: 'Times New Roman';
+            font-size: 50px;
+            padding-left: 20px;
+            margin-top: 9%;
+            letter-spacing: 2px;
+        }
+
+        .content span{
+            color: #ff7200;
+            font-size: 65px
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">OpenLibrary</h2>
+            </div>
+
+            <%- include(`header`); %>
+
+        </div> 
+        <div class="content">
+            <h1>Prva Potpuno<br><span>Otvorena Knjižnica</span> <br>U Hrvatskoj</h1>
+            <br><br>
+            <p class="par">
+                <b class="dobrodosli">Dobrodošli u prvu knjižnicu otvorenih podataka u Hrvatskoj!</b> <br> <br>
+                U našem popisu knjiga možete pronaći sljedeće informacije o knjigama: <br>
+                sifraknjige - šifra knjige pod kojom je knjiga zavedena u knjižnici <br>
+                nazivknjige - ime knjige <br>
+                nazivautora - ime autora koji je napisao knjigu <br>
+                bestseler - je li knjiga bestseler ili nije <br>
+                vrstadjela - vrsta djela kojoj knjiga pripada <br>
+                likovi - popis nekih glavnih likova knjige <br>
+                nazivizdavackekuce - ime izdavačke kuće koja ja izdala tu knjigu <br>
+                uvez - je li knjiga uvezana mekim ili tvrdim uvezom <br>
+                brojstranica - broj stranica koje knjiga ima u tom izdanju <br>
+                posudjenaod - datum kojeg je knjiga posuđena iz knjižnice (format: yyyy-mm-dd) <br>
+                posudjenado - datum do kojeg bi knjiga trebala biti vraćena u knjižnicu (format: yyyy-mm-dd) <br>
+                brojpreostalihprimjeraka - broj primjeraka te knjige koji se trenutno nalaze u knjižnici <br><br>
+
+                Svi podatci o knjigama napisani su hrvatskim jezikom i veoma nedavno ažurirani, 31. listopada 2022. godine.
+            </p>
+
+                <!-- <div class="form">
+                    Naš popis knjiga možete besplatno preuzeti na sljedećim linkovima: <br>
+                    <a href="PopisKnjigaCSV.csv" class="link"><b>CSV</b></a><br>
+                    <a href="PopisKnjigaJSON.json" class="link"><b>JSON</b></a>
+                </div> -->
+        </div>
+    </div>
+</body>
+</html>
